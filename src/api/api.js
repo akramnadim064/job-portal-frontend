@@ -30,12 +30,37 @@
 
 
 
+// import axios from "axios";
+
+// const API = axios.create({
+//   baseURL: process.env.REACT_APP_API_URL
+//     ? `${process.env.REACT_APP_API_URL}/api`
+//     : "/http://localhost:5000/api",
+// });
+
+// API.interceptors.request.use((req) => {
+//   const token = localStorage.getItem("token");
+//   if (token) {
+//     req.headers.Authorization = `Bearer ${token}`;
+//   }
+//   return req;
+// });
+
+// export default API;
+
+
+
+
+
+
+
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL
-    ? `${process.env.REACT_APP_API_URL}/api`
-    : "/http://localhost:5000/api",
+  // If the env variable exists, use it. Otherwise, default to localhost for development.
+  baseURL: process.env.REACT_APP_API_URL 
+    ? `${process.env.REACT_APP_API_URL}/api` 
+    : "http://localhost:5000/api",
 });
 
 API.interceptors.request.use((req) => {
